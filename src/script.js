@@ -70,3 +70,63 @@ navLinks.forEach(link => link.addEventListener('click', closeProjectDetail));
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeProjectDetail();
 });
+
+
+// ===== Wow pass =====
+const rootEl = document.documentElement;
+window.addEventListener('pointermove', e => {
+    rootEl.style.setProperty('--mx', e.clientX + 'px');
+    rootEl.style.setProperty('--my', e.clientY + 'px');
+}, { passive: true });
+
+// per-card spotlight and tilt
+document.querySelectorAll('.glass-card, .ach-card, .contest, .skill-tile').forEach(card => {
+    card.addEventListener('pointermove', e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left, y = e.clientY - r.top;
+        card.style.setProperty('--x', x + 'px');
+        card.style.setProperty('--y', y + 'px');
+        if (card.matches('.ach-card')) {
+            card.style.setProperty('--ry', ((x / r.width - 0.5) * 10) + 'deg');
+            card.style.setProperty('--rx', (-(y / r.height - 0.5) * 10) + 'deg');
+        }
+    });
+    card.addEventListener('pointerleave', () => {
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+    });
+});
+
+// typing role line
+const roleEl = document.querySelector('.profile-card .role');
+if (roleEl && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const words = ['Backend Engineer', 'Competitive Programmer', 'Distributed Systems', 'Codeforces Master'];
+    const text = document.createElement('span'), caret = document.createElement('span');
+    caret.className = 'caret';
+    roleEl.textContent = '';
+    roleEl.append(text, caret);
+    let w = 0, i = 0, del = false;
+    (function tick() {
+        const word = words[w];
+        text.textContent = word.slice(0, i);
+        if (!del && i === word.length) { del = true; return setTimeout(tick, 1600); }
+        if (del && i === 0) { del = false; w = (w + 1) % words.length; }
+        i += del ? -1 : 1;
+        setTimeout(tick, del ? 35 : 75);
+    })();
+}
+
+// trailing cursor ring (mouse devices only)
+if (matchMedia('(pointer: fine)').matches) {
+    const ring = document.createElement('div');
+    ring.className = 'cursor-ring';
+    document.body.append(ring);
+    let x = 0, y = 0, tx = 0, ty = 0;
+    window.addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; ring.classList.add('on'); }, { passive: true });
+    document.addEventListener('pointerover', e => ring.classList.toggle('big', !!e.target.closest('a, button, .ach-card')));
+    (function loop() {
+        x += (tx - x) * 0.18; y += (ty - y) * 0.18;
+        ring.style.transform = `translate(${x}px, ${y}px)`;
+        requestAnimationFrame(loop);
+    })();
+}

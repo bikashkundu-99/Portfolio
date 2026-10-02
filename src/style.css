@@ -1,13 +1,16 @@
 :root {
-    --bg-color: #07080c;
-    --surface: #0f1117;
-    --surface-hover: #151822;
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+    --warm: #ffb86b;
+    --bg-color: #060814;
+    --surface: #0d1020;
+    --surface-hover: #131830;
     --text-main: #f4f5f8;
     --text-muted: #9097a8;
     --accent: #8b7bff;
     --accent-2: #38e1c8;
     --accent-soft: rgba(139, 123, 255, 0.12);
-    --border: #1d212c;
+    --border: #1c2138;
     --border-hover: #343a4d;
     --line: #1d212c;
 }
@@ -16,7 +19,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--body);
 }
 
 html { scroll-behavior: smooth; }
@@ -368,3 +371,105 @@ body.no-scroll { overflow: hidden; }
     font-size: 0.9rem;
 }
 @media (max-width: 800px) { .project-fullscreen-inner { padding-top: 7rem; } }
+
+/* ===== Wow pass ===== */
+@property --a { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+@keyframes spin { to { --a: 360deg; } }
+@keyframes flow { from { background-position: 100% 0; } to { background-position: -150% 0; } }
+@keyframes blink { 50% { opacity: 0; } }
+
+body {
+    background:
+        radial-gradient(900px 500px at 12% -5%, rgba(124,108,255,0.16), transparent 60%),
+        radial-gradient(700px 500px at 100% 40%, rgba(56,225,200,0.08), transparent 60%),
+        radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1.2px) 0 0 / 26px 26px,
+        var(--bg-color);
+    background-attachment: fixed;
+}
+/* flashlight: a glow and a brighter dot grid that follow the cursor */
+body::before, body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+body::before { background: radial-gradient(520px circle at var(--mx, -500px) var(--my, -500px), rgba(124,108,255,0.10), transparent 70%); }
+body::after {
+    background: radial-gradient(rgba(160,148,255,0.95) 1.2px, transparent 1.7px) 0 0 / 26px 26px;
+    -webkit-mask-image: radial-gradient(240px circle at var(--mx, -500px) var(--my, -500px), #000, transparent);
+    mask-image: radial-gradient(240px circle at var(--mx, -500px) var(--my, -500px), #000, transparent);
+}
+
+.progress { height: 3px; box-shadow: 0 0 14px var(--accent); }
+
+/* floating pill nav */
+nav {
+    top: 14px; right: auto; left: 50%;
+    transform: translateX(-50%);
+    width: auto; max-width: calc(100% - 1.5rem);
+    padding: 0.35rem;
+    border-width: 1px;
+    border-radius: 999px;
+    background: rgba(13,16,32,0.92);
+}
+.nav-links a { text-transform: none; letter-spacing: 0; font-size: 0.95rem; font-weight: 500; }
+
+/* name, role, avatar */
+.profile-card h3 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(2.3rem, 3.4vw, 3.1rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    background: linear-gradient(100deg, #fff 15%, var(--accent) 40%, var(--accent-2) 55%, var(--warm) 70%, #fff 90%);
+    background-size: 250% 100%;
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+    animation: flow 9s linear infinite;
+}
+.profile-card .role { text-transform: none; letter-spacing: 0; font-size: 1.05rem; color: var(--accent-2); min-height: 1.6em; }
+.caret { display: inline-block; width: 2px; height: 1.1em; margin-left: 3px; vertical-align: -0.15em; background: var(--accent-2); animation: blink 1s steps(1) infinite; }
+.avatar {
+    background: conic-gradient(from var(--a), var(--accent), var(--accent-2), var(--warm), var(--accent));
+    animation: spin 6s linear infinite;
+    box-shadow: 0 0 50px rgba(124,108,255,0.35);
+}
+
+/* headings */
+.section-title { font-family: var(--display); font-size: clamp(2rem, 3.4vw, 2.7rem); font-weight: 800; letter-spacing: -0.03em; text-transform: none; }
+.section-title i {
+    width: 2.4rem; height: 2.4rem; display: grid; place-items: center; flex: none;
+    border-radius: 12px; font-size: 1rem;
+    background: var(--accent-soft); border: 1px solid rgba(139,123,255,0.3);
+}
+.sub-title { font-family: var(--display); text-transform: none; letter-spacing: 0; font-size: 1.15rem; color: var(--text-main); }
+.exp-head h4, .contest h4, .ach-rank { font-family: var(--display); letter-spacing: -0.02em; }
+
+/* cards: cursor spotlight, glow, tilt */
+.glass-card, .contest, .ach-card, .skill-tile { isolation: isolate; }
+.glass-card::before, .contest::before, .ach-card::before, .skill-tile::before {
+    content: ''; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity 0.3s;
+    background: radial-gradient(420px circle at var(--x, 50%) var(--y, 50%), rgba(139,123,255,0.18), transparent 60%);
+}
+.glass-card:hover::before, .contest:hover::before, .ach-card:hover::before, .skill-tile:hover::before { opacity: 1; }
+.glass-card:hover, .contest:hover, .ach-card:hover, .skill-tile:hover {
+    border-color: rgba(139,123,255,0.5);
+    box-shadow: 0 22px 50px -24px rgba(124,108,255,0.55);
+}
+.ach-card.reveal.visible { transition: opacity 0.8s ease var(--d, 0s), transform 0.15s ease-out, background 0.35s, border-color 0.35s, box-shadow 0.35s; }
+.ach-card.reveal.visible:hover { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-6px); }
+.contest.reveal.visible:hover, .skill-tile.reveal.visible:hover { transform: translateY(-4px); }
+.glass-card.reveal.visible:hover { transform: none; }
+.ach-rank { font-size: 2rem; }
+
+.chip { transition: transform 0.25s, border-color 0.25s, color 0.25s; }
+.chip:hover { transform: translateY(-2px); border-color: var(--accent); color: #fff; }
+.date-pill { color: var(--accent-2); border-color: rgba(56,225,200,0.3); }
+
+/* cursor ring */
+.cursor-ring {
+    position: fixed; top: 0; left: 0; z-index: 2000; pointer-events: none;
+    width: 34px; height: 34px; margin: -17px 0 0 -17px;
+    border: 1.5px solid var(--accent); border-radius: 50%; opacity: 0;
+    transition: opacity 0.3s, width 0.25s, height 0.25s, margin 0.25s, background 0.25s;
+}
+.cursor-ring.on { opacity: 0.85; }
+.cursor-ring.big { width: 64px; height: 64px; margin: -32px 0 0 -32px; background: var(--accent-soft); }
+
+@media (max-width: 800px) { nav { padding: 0.3rem; } }
+@media (prefers-reduced-motion: reduce) { .avatar, .profile-card h3, .caret { animation: none; } .cursor-ring { display: none; } }
