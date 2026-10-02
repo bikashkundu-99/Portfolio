@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bikash Kumar Kundu | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="orbs"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
+<div class="progress"></div>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-links">
+        <a href="#about" class="active">About</a>
+        <a href="#resume">Resume</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#achievements">Achievements</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="section-grid">
+
+        <!-- Left: profile (no box) -->
+        <aside>
+            <div class="profile-card">
+                <div class="avatar reveal" style="--d:0s">
+                    <img src="profile.jpg" alt="Bikash Kumar Kundu">
+                </div>
+                <h3 class="reveal" style="--d:.12s">Bikash Kumar Kundu</h3>
+                <div class="role reveal" style="--d:.24s">Software Engineer</div>
+
+                <div class="contact-details reveal" style="--d:.36s">
+                    <div><i class="fas fa-envelope"></i> bikashkumarkundu99@gmail.com</div>
+                    <div><i class="fas fa-phone"></i> +91-7008147637</div>
+                </div>
+
+                <div class="social-links reveal" style="--d:.48s">
+                    <a href="https://www.linkedin.com/in/bikash-kumar-kundu-3b2685137/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/bikashkundu-99" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right: content -->
+        <main>
+
+            <div id="about" class="section-content reveal">
+                <h2 class="section-title"><i class="fas fa-user"></i> About Me</h2>
+                <div class="about-text">
+                    <p>
+                        I’m a Backend Software Engineer with 3+ years of experience building scalable, production-grade systems using Java, Spring Boot, REST APIs, and microservices. I work across distributed systems, Kubernetes, GCP, system design, and cloud-native development, with additional experience building web and Android applications.
+                    </p>
+                    <p>
+                        I’m also a competitive programming enthusiast with LeetCode Guardian (2700+), CodeChef 6★ (2300+), and Codeforces Master (2100+), reflecting strong expertise in data structures, algorithms, and problem solving.
+                    </p>
+                    <p>
+                        My technical interests span distributed systems, cloud computing, system architecture, and machine learning.
+                    </p>
+                </div>
+            </div>
+
+            <div id="resume" class="section-content">
+                <h2 class="section-title"><i class="fas fa-file-alt"></i> Resume</h2>
+
+                <h3 class="sub-title">Professional experience</h3>
+                <div class="glass-card reveal">
+                    <div class="exp-head">
+                        <div>
+                            <h4>Software Engineer</h4>
+                            <p class="exp-company">Sagitec Solutions, Pune, Maharashtra, India</p>
+                        </div>
+                        <span class="date-pill">August 2022 – August 2025</span>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Designed and developed a retirement management system for a California public pension fund using Java, Spring Boot, and microservices architecture.</li>
+                        <li>Architected and implemented the Service Retirement Calculation Module as an independent microservice, ensuring accurate benefit computation and clear separation of concerns.</li>
+                        <li>Built RESTful APIs enabling inter-service communication, supporting scalable server interactions across multiple services.</li>
+                        <li>Integrated backend services with frontend components using JavaScript and AJAX, enabling real-time calculations without full page reloads.</li>
+                        <li>Containerized services using Docker and deployed them on Kubernetes, improving scalability, fault tolerance, and deployment consistency across environments.</li>
+                    </ul>
+                </div>
+
+                <h3 class="sub-title">Certifications</h3>
+                <div class="contest-list">
+                    <a class="contest reveal" href="https://google.accredible.com/ed4a5c08-4494-4953-b5ed-c18c54ed108f" target="_blank" rel="noopener">
+                        <div class="contest-icon"><i class="fab fa-google"></i></div>
+                        <div>
+                            <h4>Google Cloud Platform (Associate Cloud Engineer)</h4>
+                            <p>View credential <i class="fas fa-arrow-up-right-from-square"></i></p>
+                        </div>
+                    </a>
+                </div>
+
+                <h3 class="sub-title">Education</h3>
+                <div class="glass-card reveal">
+                    <div class="exp-head">
+                        <div>
+                            <h4>Lovely Professional University</h4>
+                            <p class="exp-company">Punjab, India</p>
+                        </div>
+                        <span class="date-pill">July 2018 – June 2021</span>
+                    </div>
+                    <p class="exp-company" style="margin-top:1rem">B.Tech in Computer Science and Engineering</p>
+                    <div class="chips"><span class="chip">CGPA <b>8.00</b></span></div>
+                </div>
+
+                <div class="cv-wrap">
+                    <a class="cv-btn" href="MyResume.pdf" download>
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                </div>
+            </div>
+
+            <div id="projects" class="section-content">
+                <h2 class="section-title"><i class="fas fa-code-branch"></i> Projects</h2>
+
+                <!-- Project List View -->
+                <div id="project-list-view">
+                    <div class="ach-grid">
+                        <div class="ach-card reveal" style="--d:0s; cursor: pointer;" onclick="openProjectDetail('melody')">
+                            <div class="ach-platform"><i class="fas fa-music"></i> Full-Stack Web App</div>
+                            <div class="ach-rank" style="font-size: 1.4rem; margin: 0.8rem 0 0.2rem;">Melody</div>
+                            <div class="ach-rating" style="font-size: 0.9rem;">Music Streaming Web Application</div>
+                            <div class="ach-link" style="margin-top: 1rem;">View project details <i class="fas fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Detail Full-Page Sub-View (Hidden by default) -->
+                <div id="project-detail-view" class="project-fullscreen" style="display: none;" role="dialog" aria-modal="true" aria-label="Project details"><div class="project-fullscreen-inner">
+                    <div class="detail-nav">
+                        <button class="cv-btn back-arrow-btn" onclick="backToProjects()" title="Back to Projects" aria-label="Back to Projects">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+
+                    <div class="glass-card reveal visible" style="padding: 2.5rem;">
+                        <div class="exp-head">
+                            <div>
+                                <h3 style="font-size: 2rem; margin-bottom: 0.3rem;">Melody</h3>
+                                <p class="exp-company">Music Streaming Web Application</p>
+                            </div>
+                            <a class="cv-btn" href="https://github.com/bikashkundu-99/Melody" target="_blank" rel="noopener" style="padding: 0.7rem 1.4rem; font-size: 0.9rem;">
+                                <i class="fab fa-github"></i> GitHub URL <i class="fas fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+
+                        <!-- Tech Stack Chips -->
+                        <div style="margin: 2rem 0;">
+                            <h4 class="sub-title" style="margin-bottom: 0.8rem;">Tech Stack</h4>
+                            <div class="chips">
+                                <span class="chip">Java</span>
+                                <span class="chip">Spring Boot</span>
+                                <span class="chip">REST API</span>
+                                <span class="chip">MySQL</span>
+                                <span class="chip">HTML</span>
+                                <span class="chip">CSS</span>
+                                <span class="chip">JavaScript</span>
+                            </div>
+                        </div>
+
+                        <!-- About Section -->
+                        <div class="about-text" style="margin-top: 2rem;">
+                            <h4 class="sub-title" style="margin-bottom: 0.8rem;">Project Overview</h4>
+                            <p>
+                                Melody is a full-stack music streaming web application designed with a modern Spotify/YouTube Music-inspired experience. It includes authentication, music discovery, search, playback, liked songs, playlists, recently played music, lyrics, and an expandable music player.
+                            </p>
+                            <p>
+                                The application uses a Java Spring Boot backend, HTML/CSS/JavaScript frontend, and Microsoft SQL Server for persistent data.
+                            </p>
+
+                            <h4 class="sub-title" style="margin: 1.8rem 0 0.8rem;">Key Features</h4>
+                            <ul class="exp-list">
+                                <li>User registration and login with a forgot-password and password-reset workflow.</li>
+                                <li>JWT-based authentication and authorization.</li>
+                                <li>Music search by title, artist, and album, alongside custom song recommendations.</li>
+                                <li>Recently played songs, liked songs, and complete playlist creation &amp; management.</li>
+                                <li>Music playback controls with a bottom player and an immersive expanded player.</li>
+                                <li>Lyrics display and timestamp-based synchronization (click a lyric line to seek playback directly to that timestamp).</li>
+                                <li>Speech recognition for voice-based music search.</li>
+                                <li>Dedicated "Your Library" interface driven by robust REST APIs and SQL Server persistence with Spring Data JPA.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div></div>
+            </div>
+
+            <div id="skills" class="section-content">
+                <h2 class="section-title"><i class="fas fa-laptop-code"></i> Skills</h2>
+
+                <div class="glass-card reveal">
+                    <div class="exp-head">
+                        <div>
+                            <h4>Programming Languages</h4>
+                        </div>
+                    </div>
+                    <div class="chips" style="margin-top: 1rem;">
+                        <span class="chip">Java</span>
+                        <span class="chip">C#</span>
+                        <span class="chip">Python</span>
+                        <span class="chip">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="glass-card reveal" style="margin-top: 1.5rem;">
+                    <div class="exp-head">
+                        <div>
+                            <h4>Frameworks &amp; Databases</h4>
+                        </div>
+                    </div>
+                    <div class="chips" style="margin-top: 1rem;">
+                        <span class="chip">Spring Boot</span>
+                        <span class="chip">NodeJS</span>
+                        <span class="chip">ReactJS</span>
+                        <span class="chip">MySQL</span>
+                        <span class="chip">MongoDB</span>
+                        <span class="chip">Oracle SQL</span>
+                        <span class="chip">H2</span>
+                    </div>
+                </div>
+
+                <div class="glass-card reveal" style="margin-top: 1.5rem;">
+                    <div class="exp-head">
+                        <div>
+                            <h4>Cloud &amp; DevOps</h4>
+                        </div>
+                    </div>
+                    <div class="chips" style="margin-top: 1rem;">
+                        <span class="chip">Git</span>
+                        <span class="chip">GCP</span>
+                        <span class="chip">Kubernetes</span>
+                        <span class="chip">Kafka</span>
+                        <span class="chip">Docker</span>
+                    </div>
+                </div>
+
+                <div class="glass-card reveal" style="margin-top: 1.5rem;">
+                    <div class="exp-head">
+                        <div>
+                            <h4>Machine Learning</h4>
+                        </div>
+                    </div>
+                    <div class="chips" style="margin-top: 1rem;">
+                        <span class="chip">Scikit-learn</span>
+                        <span class="chip">TensorFlow</span>
+                        <span class="chip">Keras</span>
+                        <span class="chip">XGBoost</span>
+                        <span class="chip">NumPy</span>
+                        <span class="chip">pandas</span>
+                        <span class="chip">Matplotlib</span>
+                        <span class="chip">PyTorch</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="achievements" class="section-content">
+                <h2 class="section-title"><i class="fas fa-trophy"></i> Achievements</h2>
+
+                <h3 class="sub-title">Competitive programming</h3>
+                <div class="ach-grid">
+                    <a class="ach-card reveal" style="--d:0s" href="https://leetcode.com/u/K3zbdEErWi/" target="_blank" rel="noopener">
+                        <div class="ach-platform"><i class="fas fa-code"></i> LeetCode</div>
+                        <div class="ach-rank">Guardian</div>
+                        <div class="ach-rating">Rating 2700+</div>
+                        <div class="ach-link">View profile <i class="fas fa-arrow-up-right-from-square"></i></div>
+                    </a>
+                    <a class="ach-card reveal" style="--d:.12s" href="https://www.codechef.com/users/iambk_24" target="_blank" rel="noopener">
+                        <div class="ach-platform"><i class="fas fa-utensils"></i> CodeChef</div>
+                        <div class="ach-rank">6 <i class="fas fa-star" style="color:#fcd34d;font-size:1.2rem"></i></div>
+                        <div class="ach-rating">Rating 2300+</div>
+                        <div class="ach-link">View profile <i class="fas fa-arrow-up-right-from-square"></i></div>
+                    </a>
+                    <a class="ach-card reveal" style="--d:.24s" href="https://codeforces.com/profile/iam_bk" target="_blank" rel="noopener">
+                        <div class="ach-platform"><i class="fas fa-chart-simple"></i> Codeforces</div>
+                        <div class="ach-rank">Master</div>
+                        <div class="ach-rating">Rating 2100+</div>
+                        <div class="ach-link">View profile <i class="fas fa-arrow-up-right-from-square"></i></div>
+                    </a>
+                </div>
+
+                <h3 class="sub-title">Contests</h3>
+                <div class="contest-list">
+                    <div class="contest reveal">
+                        <div class="contest-icon"><i class="fab fa-meta"></i></div>
+                        <div>
+                            <h4>Meta Hacker Cup 2025</h4>
+                            <p>Semi Final Round</p>
+                            <div class="chips"><span class="chip">Rank <b>186</b></span></div>
+                        </div>
+                    </div>
+                    <div class="contest reveal" style="--d:.12s">
+                        <div class="contest-icon"><i class="fab fa-google"></i></div>
+                        <div>
+                            <h4>Google Kickstart 2020</h4>
+                            <p>Three rounds</p>
+                            <div class="chips">
+                                <span class="chip">Round D &middot; Rank <b>609</b></span>
+                                <span class="chip">Round E &middot; Rank <b>793</b></span>
+                                <span class="chip">Round H &middot; Rank <b>194</b></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
