@@ -114,7 +114,7 @@
                 </div>
 
                 <div class="cv-wrap">
-                    <a class="cv-btn" href="./assets/MyResume.pdf" download>
+                    <a class="cv-btn" href="assets/MyResume.pdf" download>
                         <i class="fas fa-download"></i> Download CV
                     </a>
                 </div>
@@ -126,72 +126,135 @@
                 <!-- Project List View -->
                 <div id="project-list-view">
                     <div class="ach-grid">
+                        <!-- Project 1: Melody -->
                         <div class="ach-card reveal" style="--d:0s; cursor: pointer;" onclick="openProjectDetail('melody')">
                             <div class="ach-platform"><i class="fas fa-music"></i> Full-Stack Web App</div>
                             <div class="ach-rank" style="font-size: 1.4rem; margin: 0.8rem 0 0.2rem;">Melody</div>
                             <div class="ach-rating" style="font-size: 0.9rem;">Music Streaming Web Application</div>
                             <div class="ach-link" style="margin-top: 1rem;">View project details <i class="fas fa-arrow-right"></i></div>
                         </div>
+
+                        <!-- Project 2: Weather App -->
+                        <div class="ach-card reveal" style="--d:0.12s; cursor: pointer;" onclick="openProjectDetail('weather')">
+                            <div class="ach-platform"><i class="fas fa-cloud-sun"></i> Full-Stack Web App</div>
+                            <div class="ach-rank" style="font-size: 1.4rem; margin: 0.8rem 0 0.2rem;">Weather App</div>
+                            <div class="ach-rating" style="font-size: 0.9rem;">Modern Interactive Weather Experience</div>
+                            <div class="ach-link" style="margin-top: 1rem;">View project details <i class="fas fa-arrow-right"></i></div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project Detail Full-Page Sub-View (Hidden by default) -->
-                <div id="project-detail-view" class="project-fullscreen" style="display: none;" role="dialog" aria-modal="true" aria-label="Project details"><div class="project-fullscreen-inner">
-                    <div class="detail-nav">
-                        <button class="cv-btn back-arrow-btn" onclick="backToProjects()" title="Back to Projects" aria-label="Back to Projects">
-                            <i class="fas fa-arrow-left"></i>
-                        </button>
-                    </div>
+                <div id="project-detail-view" class="project-fullscreen" style="display: none;" role="dialog" aria-modal="true" aria-label="Project details">
+                    <div class="project-fullscreen-inner">
+                        <div class="detail-nav">
+                            <button class="cv-btn back-arrow-btn" onclick="backToProjects()" title="Back to Projects" aria-label="Back to Projects">
+                                <i class="fas fa-arrow-left"></i>
+                            </button>
+                        </div>
 
-                    <div class="glass-card reveal visible" style="padding: 2.5rem;">
-                        <div class="exp-head">
-                            <div>
-                                <h3 style="font-size: 2rem; margin-bottom: 0.3rem;">Melody</h3>
-                                <p class="exp-company">Music Streaming Web Application</p>
+                        <!-- Melody Detail -->
+                        <div id="detail-melody" class="project-detail-item" style="display: none;">
+                            <div class="glass-card reveal visible" style="padding: 2.5rem;">
+                                <div class="exp-head">
+                                    <div>
+                                        <h3 style="font-size: 2rem; margin-bottom: 0.3rem;">Melody</h3>
+                                        <p class="exp-company">Music Streaming Web Application</p>
+                                    </div>
+                                    <a class="cv-btn" href="https://github.com/bikashkundu-99/Melody" target="_blank" rel="noopener" style="padding: 0.7rem 1.4rem; font-size: 0.9rem;">
+                                        <i class="fab fa-github"></i> GitHub URL <i class="fas fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+
+                                <div style="margin: 2rem 0;">
+                                    <h4 class="sub-title" style="margin-bottom: 0.8rem;">Tech Stack</h4>
+                                    <div class="chips">
+                                        <span class="chip">Java</span>
+                                        <span class="chip">Spring Boot</span>
+                                        <span class="chip">REST API</span>
+                                        <span class="chip">MySQL</span>
+                                        <span class="chip">HTML</span>
+                                        <span class="chip">CSS</span>
+                                        <span class="chip">JavaScript</span>
+                                    </div>
+                                </div>
+
+                                <div class="about-text" style="margin-top: 2rem;">
+                                    <h4 class="sub-title" style="margin-bottom: 0.8rem;">Project Overview</h4>
+                                    <p>
+                                        Melody is a full-stack music streaming web application designed with a modern Spotify/YouTube Music-inspired experience. It includes authentication, music discovery, search, playback, liked songs, playlists, recently played music, lyrics, and an expandable music player.
+                                    </p>
+                                    <p>
+                                        The application uses a Java Spring Boot backend, HTML/CSS/JavaScript frontend, and Microsoft SQL Server for persistent data.
+                                    </p>
+
+                                    <h4 class="sub-title" style="margin: 1.8rem 0 0.8rem;">Key Features</h4>
+                                    <ul class="exp-list">
+                                        <li>User registration and login with a forgot-password and password-reset workflow.</li>
+                                        <li>JWT-based authentication and authorization.</li>
+                                        <li>Music search by title, artist, and album, alongside custom song recommendations.</li>
+                                        <li>Recently played songs, liked songs, and complete playlist creation &amp; management.</li>
+                                        <li>Music playback controls with a bottom player and an immersive expanded player.</li>
+                                        <li>Lyrics display and timestamp-based synchronization (click a lyric line to seek playback directly to that timestamp).</li>
+                                        <li>Speech recognition for voice-based music search.</li>
+                                        <li>Dedicated "Your Library" interface driven by robust REST APIs and SQL Server persistence with Spring Data JPA.</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <a class="cv-btn" href="https://github.com/bikashkundu-99/Melody" target="_blank" rel="noopener" style="padding: 0.7rem 1.4rem; font-size: 0.9rem;">
-                                <i class="fab fa-github"></i> GitHub URL <i class="fas fa-arrow-up-right-from-square"></i>
-                            </a>
                         </div>
 
-                        <!-- Tech Stack Chips -->
-                        <div style="margin: 2rem 0;">
-                            <h4 class="sub-title" style="margin-bottom: 0.8rem;">Tech Stack</h4>
-                            <div class="chips">
-                                <span class="chip">Java</span>
-                                <span class="chip">Spring Boot</span>
-                                <span class="chip">REST API</span>
-                                <span class="chip">MySQL</span>
-                                <span class="chip">HTML</span>
-                                <span class="chip">CSS</span>
-                                <span class="chip">JavaScript</span>
+                        <!-- Weather App Detail -->
+                        <div id="detail-weather" class="project-detail-item" style="display: none;">
+                            <div class="glass-card reveal visible" style="padding: 2.5rem;">
+                                <div class="exp-head">
+                                    <div>
+                                        <h3 style="font-size: 2rem; margin-bottom: 0.3rem;">Weather App</h3>
+                                        <p class="exp-company">Full-Stack Weather Application</p>
+                                    </div>
+                                    <a class="cv-btn" href="https://github.com/bikashkundu-99/Weather-App" target="_blank" rel="noopener" style="padding: 0.7rem 1.4rem; font-size: 0.9rem;">
+                                        <i class="fab fa-github"></i> GitHub URL <i class="fas fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
+
+                                <div style="margin: 2rem 0;">
+                                    <h4 class="sub-title" style="margin-bottom: 0.8rem;">Tech Stack</h4>
+                                    <div class="chips">
+                                        <span class="chip">Python</span>
+                                        <span class="chip">FastAPI</span>
+                                        <span class="chip">REST API</span>
+                                        <span class="chip">SQLite</span>
+                                        <span class="chip">HTML</span>
+                                        <span class="chip">CSS</span>
+                                        <span class="chip">JavaScript</span>
+                                        <span class="chip">Web Speech API</span>
+                                    </div>
+                                </div>
+
+                                <div class="about-text" style="margin-top: 2rem;">
+                                    <h4 class="sub-title" style="margin-bottom: 0.8rem;">Project Overview</h4>
+                                    <p>
+                                        Weather App is a full-stack weather application designed with a modern, responsive weather experience inspired by Apple Weather. It provides real-time weather information for searched cities through a FastAPI backend and JavaScript-based frontend.
+                                    </p>
+                                    <p>
+                                        The application uses a Python FastAPI backend, HTML/CSS/JavaScript frontend, and SQLite for persistent storage of cities, weather snapshots, and recent search history.
+                                    </p>
+
+                                    <h4 class="sub-title" style="margin: 1.8rem 0 0.8rem;">Key Features</h4>
+                                    <ul class="exp-list">
+                                        <li>Real-time weather information includes temperature, feels-like temperature, humidity, pressure, wind, visibility, UV index, and rainfall.</li>
+                                        <li>City search with persistent recent-search history using SQLite.</li>
+                                        <li>Air Quality Index (AQI) information alongside comprehensive weather data.</li>
+                                        <li>Dynamic weather-based UI supports clear, cloudy, rainy, snowy, foggy, and day/night conditions.</li>
+                                        <li>Speech recognition for voice-based city search using the Web Speech API.</li>
+                                        <li>REST API architecture using FastAPI for communication between the frontend and backend.</li>
+                                        <li>Persistent weather snapshots and city data using SQLite with relational database design.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- About Section -->
-                        <div class="about-text" style="margin-top: 2rem;">
-                            <h4 class="sub-title" style="margin-bottom: 0.8rem;">Project Overview</h4>
-                            <p>
-                                Melody is a full-stack music streaming web application designed with a modern Spotify/YouTube Music-inspired experience. It includes authentication, music discovery, search, playback, liked songs, playlists, recently played music, lyrics, and an expandable music player.
-                            </p>
-                            <p>
-                                The application uses a Java Spring Boot backend, HTML/CSS/JavaScript frontend, and Microsoft SQL Server for persistent data.
-                            </p>
-
-                            <h4 class="sub-title" style="margin: 1.8rem 0 0.8rem;">Key Features</h4>
-                            <ul class="exp-list">
-                                <li>User registration and login with a forgot-password and password-reset workflow.</li>
-                                <li>JWT-based authentication and authorization.</li>
-                                <li>Music search by title, artist, and album, alongside custom song recommendations.</li>
-                                <li>Recently played songs, liked songs, and complete playlist creation &amp; management.</li>
-                                <li>Music playback controls with a bottom player and an immersive expanded player.</li>
-                                <li>Lyrics display and timestamp-based synchronization (click a lyric line to seek playback directly to that timestamp).</li>
-                                <li>Speech recognition for voice-based music search.</li>
-                                <li>Dedicated "Your Library" interface driven by robust REST APIs and SQL Server persistence with Spring Data JPA.</li>
-                            </ul>
-                        </div>
                     </div>
-                </div></div>
+                </div>
             </div>
 
             <div id="skills" class="section-content">

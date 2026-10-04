@@ -43,10 +43,23 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 function openProjectDetail(projectId) {
     const detailView = document.getElementById('project-detail-view');
     if (!detailView) return;
+
+    // Hide all project detail subviews
+    document.querySelectorAll('.project-detail-item').forEach(item => {
+        item.style.display = 'none';
+    });
+
+    // Reveal the selected project subview
+    const targetDetail = document.getElementById(`detail-${projectId}`);
+    if (targetDetail) {
+        targetDetail.style.display = 'block';
+    }
+
     detailView.style.display = 'block';
     detailView.scrollTop = 0;
     document.body.classList.add('no-scroll');
 }
+
 
 function closeProjectDetail() {
     const detailView = document.getElementById('project-detail-view');
