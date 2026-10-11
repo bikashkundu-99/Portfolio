@@ -158,6 +158,13 @@
                             <div class="ach-rating" style="font-size: 0.9rem;">Real-Time ASL Alphabet Recognition</div>
                             <div class="ach-link" style="margin-top: 1rem;">View project details <i class="fas fa-arrow-right"></i></div>
                         </div>
+						<!-- Project 5: Distributed URL Shortener -->
+                        <div class="ach-card reveal" style="--d:0.48s; cursor: pointer;" onclick="openProjectDetail('url-shortener')">
+                            <div class="ach-platform"><i class="fas fa-link"></i> Distributed Backend System</div>
+                            <div class="ach-rank" style="font-size: 1.4rem; margin: 0.8rem 0 0.2rem;">Relay</div>
+                            <div class="ach-rating" style="font-size: 0.9rem;">Distributed URL Shortener</div>
+                            <div class="ach-link" style="margin-top: 1rem;">View project details <i class="fas fa-arrow-right"></i></div>
+                        </div>
                     </div>
                 </div>
 
@@ -370,7 +377,55 @@
                                 </div>
                             </div>
                         </div>
+						<!-- Distributed URL Shortener Detail -->
+                        <div id="detail-url-shortener" class="project-detail-item" style="display: none;">
+                            <div class="glass-card reveal visible" style="padding: 2.5rem;">
+                                <div class="exp-head">
+                                    <div>
+                                        <h3 style="font-size: 2rem; margin-bottom: 0.3rem;">Relay</h3>
+                                        <p class="exp-company">Distributed URL Shortening Service</p>
+                                    </div>
+                                    <a class="cv-btn" href="https://github.com/bikashkundu-99/Distributed-Url-Shortener" target="_blank" rel="noopener" style="padding: 0.7rem 1.4rem; font-size: 0.9rem;">
+                                        <i class="fab fa-github"></i> GitHub URL <i class="fas fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                </div>
 
+                                <div style="margin: 2rem 0;">
+                                    <h4 class="sub-title" style="margin-bottom: 0.8rem;">Tech Stack</h4>
+                                    <div class="chips">
+                                        <span class="chip">Java 21</span>
+                                        <span class="chip">Spring Boot</span>
+                                        <span class="chip">REST API</span>
+                                        <span class="chip">PostgreSQL</span>
+                                        <span class="chip">Redis</span>
+                                        <span class="chip">Kafka (Redpanda)</span>
+                                        <span class="chip">Nginx</span>
+                                        <span class="chip">Docker Compose</span>
+                                        <span class="chip">HTML</span>
+                                        <span class="chip">CSS</span>
+                                        <span class="chip">JavaScript</span>
+                                    </div>
+                                </div>
+
+                                <div class="about-text" style="margin-top: 2rem;">
+                                    <h4 class="sub-title" style="margin-bottom: 0.8rem;">Project Overview</h4>
+                                    <p>
+                                        Relay is a distributed URL-shortening service built to demonstrate a scalable backend architecture. It runs multiple Java API instances behind an Nginx gateway, stores links in PostgreSQL, caches redirects with Redis, and processes click analytics asynchronously through Kafka.
+                                    </p>
+
+                                    <h4 class="sub-title" style="margin: 1.8rem 0 0.8rem;">Key Features</h4>
+                                    <ul class="exp-list">
+                                        <li><strong>Atomic ID Generation:</strong> Creates Base62 short codes using ID blocks allocated atomically from PostgreSQL, allowing multiple API instances to generate unique IDs seamlessly.</li>
+                                        <li><strong>URL Deduplication:</strong> Automatically reuses an existing short URL when the exact same destination URL is submitted again.</li>
+                                        <li><strong>High-Performance Caching:</strong> Caches redirects in Redis and utilizes a Bloom filter to bypass database lookups entirely for definite cache misses.</li>
+                                        <li><strong>Rate Limiting:</strong> Applies shared, IP-based request rate limiting backed by Redis.</li>
+                                        <li><strong>Asynchronous Analytics:</strong> Publishes click events to Kafka for decoupled, asynchronous analytics processing.</li>
+                                        <li><strong>Geo-Tracking:</strong> Tracks click totals and country breakdowns using integrated GeoLite2 country data.</li>
+                                        <li><strong>Full Environment Integration:</strong> Includes a browser-based interface, a local Adminer page for inspecting PostgreSQL data, and orchestrates everything through Docker Compose.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
